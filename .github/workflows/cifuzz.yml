@@ -23,7 +23,6 @@ jobs:
      id: run
      uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@oss-fuzz-project-name-optional
      with:
-       build-integration-path: 'fuzzer-build-integration'
        fuzz-seconds: 600
    - name: Upload Crash
      uses: actions/upload-artifact@v1
@@ -46,7 +45,6 @@ jobs:
      id: run
      uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@oss-fuzz-project-name-optional
      with:
-       build-integration-path: 'fuzzer-build-integration'
        fuzz-seconds: 600
        github-token: ${{ secrets.GITHUB_TOKEN }}
        run-fuzzers-mode: 'batch'
