@@ -46,4 +46,5 @@ jobs:
        github-token: ${{ secrets.ACCESS_TOKEN }}
        run-fuzzers-mode: 'coverage'
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
-       storage-repo-branch: gh-pages
+       storage-repo-branch: main
+       storage-repo-branch-coverage: main
