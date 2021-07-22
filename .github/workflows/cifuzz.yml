@@ -24,7 +24,7 @@ jobs:
      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@cifuzz-git-store
      with:
        fuzz-seconds: 600
-       github-token: ${{ secrets.GITHUB_TOKEN }}
+       github-token: ${{ secrets.ACCESS_TOKEN }}
        run-fuzzers-mode: 'batch'
-       storage-repo: https://github.com/oliverchang/cifuzz-external-example.git
+       storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
