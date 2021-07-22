@@ -38,6 +38,7 @@ jobs:
      uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@cifuzz-git-store
      with:
        build-integration-path: 'fuzzer-build-integration'
+       sanitizer: coverage
    - name: Run Fuzzers
      id: run
      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@cifuzz-git-store
