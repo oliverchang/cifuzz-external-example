@@ -5,7 +5,7 @@ on:
       - '**'
   push:
     branches:
-      - master
+      - upload-builds-separate
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
      run: echo "GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_BASE_REF $GITHUB_BASE_REF GITHUB_REF $GITHUB_REF GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_ACTION_REF $GITHUB_ACTION_REF GITHUB_SHA $GITHUB_SHA GITHUB_RUN_ID $GITHUB_RUN_ID"
    - name: Build Fuzzers
      id: build
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@master
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@upload-builds-separate
      with:
        build-integration-path: 'fuzzer-build-integration'
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
@@ -24,7 +24,7 @@ jobs:
        storage-repo-branch-coverage: gh-pages
    - name: Run Fuzzers
      id: run
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@master
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@upload-builds-separate
      with:
        fuzz-seconds: 600
        github-token: ${{ secrets.ACCESS_TOKEN }}
@@ -39,7 +39,7 @@ jobs:
      run: echo "GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_BASE_REF $GITHUB_BASE_REF GITHUB_REF $GITHUB_REF GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_ACTION_REF $GITHUB_ACTION_REF GITHUB_SHA $GITHUB_SHA GITHUB_RUN_ID $GITHUB_RUN_ID"
    - name: Build Fuzzers
      id: build
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@master
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@upload-builds-separate
      with:
        build-integration-path: 'fuzzer-build-integration'
        sanitizer: coverage
@@ -48,7 +48,7 @@ jobs:
        storage-repo-branch-coverage: gh-pages
    - name: Run Fuzzers
      id: run
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@master
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@upload-builds-separate
      with:
        fuzz-seconds: 600
        github-token: ${{ secrets.ACCESS_TOKEN }}
