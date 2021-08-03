@@ -1,0 +1,20 @@
+name: CIFuzz build
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  Build:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Build Fuzzers
+     id: build
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@upload-build-separate
+     with:
+       build-integration-path: 'fuzzer-build-integration'
+       storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
+       storage-repo-branch: main
+       storage-repo-branch-coverage: gh-pages
+       builds-storage: GITHUB_ARTIFACT
