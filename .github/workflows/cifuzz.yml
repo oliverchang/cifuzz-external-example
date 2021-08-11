@@ -18,7 +18,6 @@ jobs:
      id: build
      uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@upload-build-separate
      with:
-       build-integration-path: 'fuzzer-build-integration'
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
        storage-repo-branch-coverage: gh-pages
@@ -41,7 +40,6 @@ jobs:
      id: build
      uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@upload-build-separate
      with:
-       build-integration-path: 'fuzzer-build-integration'
        sanitizer: coverage
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
