@@ -18,4 +18,4 @@ FROM gcr.io/oss-fuzz-base/base-builder
 
 COPY . $SRC/external-project
 WORKDIR external-project
-COPY fuzzer-build-integration/build.sh $SRC/
+COPY .clusterfuzzlite/build.sh $SRC/
