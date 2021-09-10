@@ -16,14 +16,14 @@ jobs:
      run: echo "GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_BASE_REF $GITHUB_BASE_REF GITHUB_REF $GITHUB_REF GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_ACTION_REF $GITHUB_ACTION_REF GITHUB_SHA $GITHUB_SHA GITHUB_RUN_ID $GITHUB_RUN_ID"
    - name: Build Fuzzers
      id: build
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@cifuzz-libcf
+     uses: google/clusterfuzzlite/actions/build_fuzzers@main
      with:
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
        storage-repo-branch-coverage: gh-pages
    - name: Run Fuzzers
      id: run
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@cifuzz-libcf
+     uses: google/clusterfuzzlite/actions/run_fuzzers@main
      with:
        fuzz-seconds: 600
        github-token: ${{ secrets.ACCESS_TOKEN }}
@@ -38,7 +38,7 @@ jobs:
      run: echo "GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_BASE_REF $GITHUB_BASE_REF GITHUB_REF $GITHUB_REF GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_ACTION_REF $GITHUB_ACTION_REF GITHUB_SHA $GITHUB_SHA GITHUB_RUN_ID $GITHUB_RUN_ID"
    - name: Build Fuzzers
      id: build
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@cifuzz-libcf
+     uses: google/clusterfuzzlite/actions/build_fuzzers@main
      with:
        sanitizer: coverage
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
@@ -46,7 +46,7 @@ jobs:
        storage-repo-branch-coverage: gh-pages
    - name: Run Fuzzers
      id: run
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@cifuzz-libcf
+     uses: google/clusterfuzzlite/actions/run_fuzzers@main
      with:
        fuzz-seconds: 600
        github-token: ${{ secrets.ACCESS_TOKEN }}
@@ -61,14 +61,14 @@ jobs:
      run: echo "GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_BASE_REF $GITHUB_BASE_REF GITHUB_REF $GITHUB_REF GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_ACTION_REF $GITHUB_ACTION_REF GITHUB_SHA $GITHUB_SHA GITHUB_RUN_ID $GITHUB_RUN_ID"
    - name: Build Fuzzers
      id: build
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@cifuzz-libcf
+     uses: google/clusterfuzzlite/actions/build_fuzzers@main
      with:
        build-integration-path: 'fuzzer-build-integration'
        oss-fuzz-project-name: ''
        github-token: ${{ secrets.GITHUB_TOKEN }}
    - name: Run Fuzzers
      id: run
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@cifuzz-libcf
+     uses: google/clusterfuzzlite/actions/run_fuzzers@main
      with:
        oss-fuzz-project-name: ''
        build-integration-path: 'fuzzer-build-integration'

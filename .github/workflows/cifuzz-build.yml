@@ -11,7 +11,7 @@ jobs:
    steps:
    - name: Build Fuzzers
      id: build
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@master
+     uses: google/clusterfuzzlite/actions/build_fuzzers@main
      with:
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
