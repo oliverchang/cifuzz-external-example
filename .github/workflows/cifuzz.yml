@@ -16,14 +16,16 @@ jobs:
      run: echo "GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_BASE_REF $GITHUB_BASE_REF GITHUB_REF $GITHUB_REF GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_ACTION_REF $GITHUB_ACTION_REF GITHUB_SHA $GITHUB_SHA GITHUB_RUN_ID $GITHUB_RUN_ID"
    - name: Build Fuzzers
      id: build
-     uses: google/clusterfuzzlite/actions/build_fuzzers@main
+     #uses: google/clusterfuzzlite/actions/build_fuzzers@main
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@update-libcf
      with:
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
        storage-repo-branch-coverage: gh-pages
    - name: Run Fuzzers
      id: run
-     uses: google/clusterfuzzlite/actions/run_fuzzers@main
+     #uses: google/clusterfuzzlite/actions/run_fuzzers@main
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@update-libcf
      with:
        fuzz-seconds: 600
        github-token: ${{ secrets.ACCESS_TOKEN }}
@@ -38,7 +40,8 @@ jobs:
      run: echo "GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_BASE_REF $GITHUB_BASE_REF GITHUB_REF $GITHUB_REF GITHUB_HEAD_REF $GITHUB_HEAD_REF GITHUB_ACTION_REF $GITHUB_ACTION_REF GITHUB_SHA $GITHUB_SHA GITHUB_RUN_ID $GITHUB_RUN_ID"
    - name: Build Fuzzers
      id: build
-     uses: google/clusterfuzzlite/actions/build_fuzzers@main
+     #uses: google/clusterfuzzlite/actions/build_fuzzers@main
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@update-libcf
      with:
        sanitizer: coverage
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
@@ -46,7 +49,8 @@ jobs:
        storage-repo-branch-coverage: gh-pages
    - name: Run Fuzzers
      id: run
-     uses: google/clusterfuzzlite/actions/run_fuzzers@main
+     #uses: google/clusterfuzzlite/actions/run_fuzzers@main
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@update-libcf
      with:
        fuzz-seconds: 600
        github-token: ${{ secrets.ACCESS_TOKEN }}
@@ -62,7 +66,7 @@ jobs:
    - name: Build Fuzzers
      id: build
      #uses: google/clusterfuzzlite/actions/build_fuzzers@main
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@cifuzz-fix-upload
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@update-libcf
      with:
        build-integration-path: 'fuzzer-build-integration'
        oss-fuzz-project-name: ''
@@ -70,7 +74,7 @@ jobs:
    - name: Run Fuzzers
      id: run
      #uses: google/clusterfuzzlite/actions/run_fuzzers@main
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@cifuzz-fix-upload
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@update-libcf
      with:
        oss-fuzz-project-name: ''
        build-integration-path: 'fuzzer-build-integration'
