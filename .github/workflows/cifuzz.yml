@@ -17,7 +17,7 @@ jobs:
    - name: Build Fuzzers
      id: build
      #uses: google/clusterfuzzlite/actions/build_fuzzers@main
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@libcf-reproduce
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@fix-coverage
      with:
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
@@ -25,7 +25,7 @@ jobs:
    - name: Run Fuzzers
      id: run
      #uses: google/clusterfuzzlite/actions/run_fuzzers@main
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@libcf-reproduce
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-coverage
      with:
        fuzz-seconds: 600
        github-token: ${{ secrets.ACCESS_TOKEN }}
@@ -41,7 +41,7 @@ jobs:
    - name: Build Fuzzers
      id: build
      #uses: google/clusterfuzzlite/actions/build_fuzzers@main
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@libcf-reproduce
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@fix-coverage
      with:
        sanitizer: coverage
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
@@ -50,7 +50,7 @@ jobs:
    - name: Run Fuzzers
      id: run
      #uses: google/clusterfuzzlite/actions/run_fuzzers@main
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@libcf-reproduce
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-coverage
      with:
        fuzz-seconds: 600
        github-token: ${{ secrets.ACCESS_TOKEN }}
@@ -66,7 +66,7 @@ jobs:
    - name: Build Fuzzers
      id: build
      #uses: google/clusterfuzzlite/actions/build_fuzzers@main
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@libcf-reproduce
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@fix-coverage
      with:
        build-integration-path: 'fuzzer-build-integration'
        oss-fuzz-project-name: ''
@@ -74,7 +74,7 @@ jobs:
    - name: Run Fuzzers
      id: run
      #uses: google/clusterfuzzlite/actions/run_fuzzers@main
-     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@libcf-reproduce
+     uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-coverage
      with:
        oss-fuzz-project-name: ''
        build-integration-path: 'fuzzer-build-integration'
