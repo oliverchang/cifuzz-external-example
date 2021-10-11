@@ -1,4 +1,4 @@
-name: ClusterFuzz Lite Continuous builds
+name: ClusterFuzz Lite continuous builds
 on:
   push:
     branches:
