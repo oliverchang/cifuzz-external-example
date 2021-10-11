@@ -28,7 +28,6 @@ jobs:
      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-coverage
      with:
        fuzz-seconds: 600
-       github-token: ${{ secrets.ACCESS_TOKEN }}
        run-fuzzers-mode: 'batch'
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
@@ -53,7 +52,6 @@ jobs:
      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-coverage
      with:
        fuzz-seconds: 600
-       github-token: ${{ secrets.ACCESS_TOKEN }}
        run-fuzzers-mode: 'coverage'
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
@@ -70,7 +68,6 @@ jobs:
      with:
        build-integration-path: 'fuzzer-build-integration'
        oss-fuzz-project-name: ''
-       github-token: ${{ secrets.GITHUB_TOKEN }}
    - name: Run Fuzzers
      id: run
      #uses: google/clusterfuzzlite/actions/run_fuzzers@main
@@ -79,7 +76,6 @@ jobs:
        oss-fuzz-project-name: ''
        build-integration-path: 'fuzzer-build-integration'
        fuzz-seconds: 600
-       github-token: ${{ secrets.GITHUB_TOKEN }}
        run-fuzzers-mode: 'prune'
        storage-repo: https://${{ secrets.ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
        storage-repo-branch: main
