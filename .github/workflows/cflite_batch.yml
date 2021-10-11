@@ -17,6 +17,6 @@ jobs:
       uses: google/clusterfuzzlite/actions/run_fuzzers@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        fuzz-seconds: 600
+        fuzz-seconds: 3600
         run-fuzzers-mode: 'batch'
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
