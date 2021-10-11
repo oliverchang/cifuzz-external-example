@@ -1,0 +1,14 @@
+name: ClusterFuzz Lite Continuous builds
+on:
+  push:
+    branches:
+      - main  # Use your actual default branch here.
+jobs:
+  Build:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Build Fuzzers
+     id: build
+     uses: google/clusterfuzzlite/actions/build_fuzzers@v1
+     with:
+       upload-build: true

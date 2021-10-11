@@ -1,0 +1,22 @@
+name: ClusterFuzz Lite batch fuzzing
+on:
+  push:
+    branches:
+      - main  # Use your actual default branch here.
+  schedule:
+    - cron: '0 0/6 * * *'  # Every 6th hour. Change this to whatever is suitable.
+jobs:
+  Batch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build Fuzzers
+      id: build
+      uses: google/clusterfuzzlite/actions/build_fuzzers@v1
+    - name: Run Fuzzers
+      id: run
+      uses: google/clusterfuzzlite/actions/run_fuzzers@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        fuzz-seconds: 600
+        run-fuzzers-mode: 'batch'
+        storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
