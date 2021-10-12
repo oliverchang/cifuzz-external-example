@@ -4,21 +4,20 @@ on:
     branches:
       - main  # Use your actual default branch here.
   workflow_dispatch:
-  schedule:
+    #schedule:
     #- cron: '0 0/6 * * *'  # Every 6th hour. Change this to whatever is suitable.
-    - cron: '* * * * *'
 jobs:
   BatchFuzzing:
     runs-on: ubuntu-latest
     steps:
     - name: Build Fuzzers
       id: build
-      #uses: google/clusterfuzzlite/actions/build_fuzzers@v1
-      uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@git-url-fix
+      uses: google/clusterfuzzlite/actions/build_fuzzers@v1
+      #uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@git-url-fix
     - name: Run Fuzzers
       id: run
-      #uses: google/clusterfuzzlite/actions/run_fuzzers@v1
-      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@git-url-fix
+      uses: google/clusterfuzzlite/actions/run_fuzzers@v1
+      #uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@git-url-fix
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         fuzz-seconds: 3600
