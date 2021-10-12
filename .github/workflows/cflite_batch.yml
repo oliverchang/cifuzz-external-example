@@ -5,7 +5,7 @@ on:
       - main  # Use your actual default branch here.
   schedule:
     #- cron: '0 0/6 * * *'  # Every 6th hour. Change this to whatever is suitable.
-    - cron: '*/5 * * * *'
+    - cron: '50 * * * *'
 jobs:
   BatchFuzzing:
     runs-on: ubuntu-latest
