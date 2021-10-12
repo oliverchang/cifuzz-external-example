@@ -2,7 +2,7 @@ name: ClusterFuzz Lite regular tasks
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # Once a day at midnight.
+    - cron: '* * * * *'  # Once a day at midnight.
 jobs:
   Coverage:
     runs-on: ubuntu-latest
