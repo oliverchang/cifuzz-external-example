@@ -18,7 +18,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         fuzz-seconds: 600
-        run-fuzzers-mode: 'coverage'
+        mode: 'coverage'
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
   Pruning:
     runs-on: ubuntu-latest
@@ -32,5 +32,5 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         fuzz-seconds: 600
-        run-fuzzers-mode: 'prune'
+        mode: 'prune'
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
