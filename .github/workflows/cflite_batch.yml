@@ -5,8 +5,7 @@ on:
       - main  # Use your actual default branch here.
   workflow_dispatch:
   schedule:
-    #- cron: '0 0/6 * * *'  # Every 6th hour. Change this to whatever is suitable.
-    - cron: '* * * * *'
+    - cron: '0 0/6 * * *'  # Every 6th hour. Change this to whatever is suitable.
 jobs:
   BatchFuzzing:
     runs-on: ubuntu-latest
@@ -14,7 +13,7 @@ jobs:
     - name: Build Fuzzers
       id: build
       #uses: google/clusterfuzzlite/actions/build_fuzzers@v1
-      uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@cflite-logging
+      uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@fix-artifacts
       env:
         CIFUZZ_DEBUG: ''
       with:
@@ -22,7 +21,7 @@ jobs:
     - name: Run Fuzzers
       id: run
       #uses: google/clusterfuzzlite/actions/run_fuzzers@v1
-      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@cflite-logging
+      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-artifacts
       env:
         CIFUZZ_DEBUG: ''
       with:
