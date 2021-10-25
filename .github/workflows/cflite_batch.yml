@@ -1,4 +1,4 @@
-name: ClusterFuzz Lite batch fuzzing
+name: ClusterFuzzLite batch fuzzing
 on:
   push:
     branches:

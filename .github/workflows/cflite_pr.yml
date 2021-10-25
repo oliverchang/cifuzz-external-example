@@ -1,4 +1,4 @@
-name: ClusterFuzz Lite PR fuzzing
+name: ClusterFuzzLite PR fuzzing
 on:
   pull_request:
     paths:

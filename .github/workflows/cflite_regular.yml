@@ -1,4 +1,4 @@
-name: ClusterFuzz Lite regular tasks
+name: ClusterFuzzLite regular tasks
 on:
   workflow_dispatch:
   schedule:
