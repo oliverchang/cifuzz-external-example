@@ -12,16 +12,16 @@ jobs:
     steps:
     - name: Build Fuzzers
       id: build
-      #uses: google/clusterfuzzlite/actions/build_fuzzers@v1
-      uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@fix-artifacts
+      uses: google/clusterfuzzlite/actions/build_fuzzers@v1
+      #uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@fix-artifacts
       env:
         CIFUZZ_DEBUG: ''
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Fuzzers
       id: run
-      #uses: google/clusterfuzzlite/actions/run_fuzzers@v1
-      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-artifacts
+      uses: google/clusterfuzzlite/actions/run_fuzzers@v1
+      #uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-artifacts
       env:
         CIFUZZ_DEBUG: ''
       with:
