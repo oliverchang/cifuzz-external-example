@@ -1,7 +1,9 @@
 name: ClusterFuzzLite regular tasks
-on: workflow_dispatch:
+on:
+  workflow_dispatch:
   schedule:
-    - cron: '* * * * *'  # Once a day at midnight.
+    - cron: '0 0 * * *'  # Once a day at midnight.
+permissions: read-all
 jobs:
   Coverage:
     runs-on: ubuntu-latest
