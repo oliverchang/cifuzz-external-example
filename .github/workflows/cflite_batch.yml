@@ -9,8 +9,12 @@ on:
 jobs:
   BatchFuzzing:
     runs-on: ubuntu-latest
+   strategy:
+     fail-fast: false
+     matrix:
+       sanitizer: [address, undefined, memory]
     steps:
-    - name: Build Fuzzers
+    - name: Build Fuzzers (${{ matrix.sanitizer }})
       id: build
       uses: google/clusterfuzzlite/actions/build_fuzzers@v1
         #uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@artifact-per-target
@@ -18,7 +22,8 @@ jobs:
         CIFUZZ_DEBUG: ''
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Run Fuzzers
+        sanitizer: ${{ matrix.sanitizer }}
+    - name: Run Fuzzers (${{ matrix.sanitizer }})
       id: run
       uses: google/clusterfuzzlite/actions/run_fuzzers@v1
         #uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@artifact-per-target
@@ -29,3 +34,4 @@ jobs:
         fuzz-seconds: 3600
         mode: 'batch'
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/oliverchang/cifuzz-external-storage.git
+        sanitizer: ${{ matrix.sanitizer }}
