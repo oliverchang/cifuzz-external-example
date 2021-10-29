@@ -9,10 +9,10 @@ on:
 jobs:
   BatchFuzzing:
     runs-on: ubuntu-latest
-   strategy:
-     fail-fast: false
-     matrix:
-       sanitizer: [address, undefined, memory]
+    strategy:
+      fail-fast: false
+      matrix:
+        sanitizer: [address, undefined, memory]
     steps:
     - name: Build Fuzzers (${{ matrix.sanitizer }})
       id: build
