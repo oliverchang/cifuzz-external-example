@@ -27,7 +27,7 @@ jobs:
     - name: Run Fuzzers (${{ matrix.sanitizer }})
       id: run
         #uses: google/clusterfuzzlite/actions/run_fuzzers@v1
-      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@fix-cflite-logging
+      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@batch-random
       env:
         CIFUZZ_DEBUG: ''
       with:
