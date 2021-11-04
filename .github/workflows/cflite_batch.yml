@@ -27,7 +27,7 @@ jobs:
     - name: Run Fuzzers (${{ matrix.sanitizer }})
       id: run
         #uses: google/clusterfuzzlite/actions/run_fuzzers@v1
-      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@batch-random
+      uses: google/oss-fuzz/infra/cifuzz/external-actions/run_fuzzers@remove-stack-parser
       env:
         CIFUZZ_DEBUG: ''
       with:
